@@ -16,4 +16,6 @@ public class Post {
     String img;
     Date datetime;
     Integer uid;
+    String cat;
+    User user;
 }
