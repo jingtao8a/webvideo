@@ -4,13 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Post {
     Integer id;
-    String userName;
-    String email;
-    String password;
+    String title;
+    String desc;
     String img;
+    Date datetime;
+    Integer uid;
 }

@@ -16,6 +16,7 @@ public class TestController {
     @RequestMapping("/test1")
     @ResponseBody
     public String test1() {
+        int a = 1 / 0;
         return "test1";
     }
 }
