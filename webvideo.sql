@@ -2,13 +2,23 @@ create schema webvideo;
 use webvideo;
 create table `users` (
     `id` int NOT NULL AUTO_INCREMENT primary key,
-    `username` varchar(20) NOT NULL,
-    `password` varchar(20) NOT NULL
+    `username` varchar(45) NOT NULL,
+    `email` varchar(255) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `img` varchar(255)
 );
 
-insert into webvideo.users (`username`, `password`) 
-	values ("admin", "123"),
-		("root", "root"),
-        ("xiaoyu", "123");
-        
+create table `posts` (
+	`id` int NOT NULL AUTO_INCREMENT primary key,
+    `title` varchar(255) NOT NULL,
+    `desc` varchar(1000) NOT NULL,
+    `img` varchar(255) NOT NULL,
+    `date` datetime NOT NULL,
+    `uid` int NOT NULL,
+    foreign key(`uid`) references users(`id`)
+);
+
 select * from webvideo.users;
+select * from webvideo.posts;
+drop table webvideo.users;
+drop table webvideo.posts;
