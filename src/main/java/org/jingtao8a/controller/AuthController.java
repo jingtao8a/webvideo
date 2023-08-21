@@ -31,12 +31,23 @@ public class AuthController {
     }
 
     @RequestMapping(value="login", method= RequestMethod.POST)
-    public void login() {
-
+    @ResponseBody
+    public Result login(@RequestBody User user) {
+        List<User> users = userService.getUsersByUserName(user.getUserName());
+        if (users.size() == 0) {
+            return new Result(404, "user not found");
+        }
+        if (!users.get(0).getPassword().equals(user.getPassword())) {
+            return new Result(404, "password is wrong");
+        }
+        Result res = new Result(200, "login success");
+        res.setExtentPack(users.get(0));
+        return res;
     }
 
     @RequestMapping(value="logout", method= RequestMethod.POST)
-    public void logout() {
-
+    @ResponseBody
+    public Result logout() {
+        return new Result(200, "logout success");
     }
 }
