@@ -147,5 +147,12 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.5.1</version>
         </dependency>
+        <!--        jstl-->
+        <!--JSTL 解析JSP标签-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
 </project>
