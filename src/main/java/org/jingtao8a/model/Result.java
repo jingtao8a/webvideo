@@ -10,4 +10,10 @@ import lombok.NoArgsConstructor;
 public class Result {
     Integer code;
     String message;
+    Object extentPack;
+
+    public Result(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 }

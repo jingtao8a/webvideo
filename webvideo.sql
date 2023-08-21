@@ -15,6 +15,7 @@ create table `posts` (
     `img` varchar(255) NOT NULL,
     `date` datetime NOT NULL,
     `uid` int NOT NULL,
+    `cat` varchar(255) NOT NULL,
     foreign key(`uid`) references users(`id`)
 );
 

@@ -1,6 +1,7 @@
 package org.jingtao8a.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
@@ -23,9 +24,10 @@ public class ServletConfig extends AbstractAnnotationConfigDispatcherServletInit
 
     @Override
     protected Filter[] getServletFilters() {
-        CharacterEncodingFilter filter = new CharacterEncodingFilter();
-        filter.setEncoding("utf-8");
-        filter.setForceEncoding(true);
-        return new Filter[]{filter};
+        HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("utf-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return new Filter[]{hiddenHttpMethodFilter, characterEncodingFilter};
     }
 }
