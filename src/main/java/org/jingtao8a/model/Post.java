@@ -1,8 +1,10 @@
 package org.jingtao8a.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -14,6 +16,7 @@ public class Post {
     String title;
     String desc;
     String img;
+    @DateTimeFormat(pattern="YYYY-MM-DD HH:mm:ss")
     Date datetime;
     Integer uid;
     String cat;
