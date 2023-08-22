@@ -65,7 +65,6 @@ public class PostController {
         if (post.getUid() == null ) {
             return new Result(400, "uid not found");
         }
-        System.out.println(post);
         postService.addPost(post);
         return new Result(200, "addPost");
     }
