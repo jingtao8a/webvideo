@@ -23,4 +23,8 @@ public class PostService {
     public Post getPostById(Integer id) { return postDao.getPostById(id); }
 
     public void deletePostById(Integer id) { postDao.deletePostById(id); }
+
+    public void updatePostById(Integer id, Post post) { postDao.updatePostById(id, post);}
+
+    public void addPost(Post post) { postDao.addPost(post); }
 }

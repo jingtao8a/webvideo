@@ -15,6 +15,6 @@ public interface UserDao {
     @Select("select * from users where email=#{email}")
     public List<User> getUsersByEmail(String email);
 
-    @Insert("insert into users(username, email, password, img) values(#{userName}, #{email}, #{password}, #{img})")
+    @Insert("insert into users(`username`, `email`, `password`, `img`) values(#{userName}, #{email}, #{password}, #{img})")
     public void addUser(User user);
 }

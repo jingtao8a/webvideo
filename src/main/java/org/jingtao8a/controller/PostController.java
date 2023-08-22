@@ -50,4 +50,23 @@ public class PostController {
         postService.deletePostById(postId);
         return new Result(200, "deletePostById");
     }
+
+    @RequestMapping(value="/post/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public Result updatePostById(@PathVariable String id, @RequestBody Post post) {
+        Integer postId = Integer.valueOf(id);
+        postService.updatePostById(postId, post);
+        return new Result(200, "updatePostById");
+    }
+
+    @RequestMapping(value="/post", method = RequestMethod.POST)
+    @ResponseBody
+    public Result addPost(@RequestBody Post post) {
+        if (post.getUid() == null ) {
+            return new Result(400, "uid not found");
+        }
+        System.out.println(post);
+        postService.addPost(post);
+        return new Result(200, "addPost");
+    }
 }
