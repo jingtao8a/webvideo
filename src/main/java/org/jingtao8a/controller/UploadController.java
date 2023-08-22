@@ -16,16 +16,21 @@ public class UploadController {
     @RequestMapping(value="/upload", method = RequestMethod.POST)
     @ResponseBody
     public Result uploadFile(@RequestParam("file") CommonsMultipartFile commonsMultipartFile) {
+        Result res;
         File file = new File("D:/webvideo/src/main/webapp/upload/" + commonsMultipartFile.getOriginalFilename());
         try {
             if (!file.exists()) {
                 file.createNewFile();
+            } else {
+                res = new Result(200, "file has been uploaded");
+                res.setExtentPack("/upload/" + commonsMultipartFile.getOriginalFilename());
+                return res;
             }
             commonsMultipartFile.transferTo(file);
         } catch (IOException e) {
             return new Result(500, "file upload fail");
         }
-        Result res = new Result(200, "file upload success");
+        res = new Result(200, "file upload success");
         res.setExtentPack("/upload/" + commonsMultipartFile.getOriginalFilename());
         return res;
     }
