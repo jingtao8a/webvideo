@@ -16,8 +16,8 @@ public class Post {
     String title;
     String desc;
     String img;
-    @DateTimeFormat(pattern="YYYY-MM-DD HH:mm:ss")
-    Date datetime;
+    @DateTimeFormat(pattern="YYYY-MM-DD")
+    Date date;
     Integer uid;
     String cat;
     User user;
