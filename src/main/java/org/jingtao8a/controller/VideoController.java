@@ -1,11 +1,13 @@
 package org.jingtao8a.controller;
 
 import org.jingtao8a.model.Result;
+import org.jingtao8a.util.DirectoryStructure;
 import org.jingtao8a.util.FFmpegHLSConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.File;
 
@@ -32,7 +34,10 @@ public class VideoController {
     }
 
     @RequestMapping(value="/videoDirectoryStructrue", method=RequestMethod.GET)
+    @ResponseBody
     public Result getVideoDirectoryStructure() {
-        return null;
+        Result res = new Result(200, "getVideoDirectoryStructure");
+        res.setExtentPack(DirectoryStructure.getDirectoryStrucure(mp4VideoRootPath).getChildren());
+        return res;
     }
 }
