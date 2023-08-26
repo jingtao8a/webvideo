@@ -15,7 +15,8 @@ import java.io.File;
 
 @Controller
 public class VideoController {
-    private static String mp4VideoRootPath = "D:/video/";
+//    "F:/bobjames/"
+    private static String mp4VideoRootPath = "F:/bobjames/";
     private static String m3u8VideoRootPath = "D:/webvideo/src/main/webapp/video/"; // fixed
 
     private static Dir rootDir;

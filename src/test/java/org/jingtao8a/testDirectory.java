@@ -7,10 +7,10 @@ import org.junit.Test;
 import java.io.File;
 
 public class testDirectory {
-    private static String root = "D:/video";
+    private static String root = "D:/";
     @Test
     public void testDirectory() {
-        Dir rootDir = DirectoryStructure.getDirectoryStrucure("D:/video");
+        Dir rootDir = DirectoryStructure.getDirectoryStrucure(root);
 //        listFiles(new File("D:/video"), rootDir);
         System.out.println(rootDir.getChildren());
     }
