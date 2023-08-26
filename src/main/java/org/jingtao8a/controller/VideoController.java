@@ -1,5 +1,6 @@
 package org.jingtao8a.controller;
 
+import org.jingtao8a.model.Dir;
 import org.jingtao8a.model.Result;
 import org.jingtao8a.util.DirectoryStructure;
 import org.jingtao8a.util.FFmpegHLSConverter;
@@ -16,6 +17,8 @@ import java.io.File;
 public class VideoController {
     private static String mp4VideoRootPath = "D:/video/";
     private static String m3u8VideoRootPath = "D:/webvideo/src/main/webapp/video/"; // fixed
+
+    private static Dir rootDir;
     @RequestMapping(value="/video", method= RequestMethod.GET)
     public String getVideo(@RequestParam("videoPath") String videoPath) {// dir1/vid.mp4
         String mp4VideoPath = mp4VideoRootPath + videoPath;
@@ -37,7 +40,10 @@ public class VideoController {
     @ResponseBody
     public Result getVideoDirectoryStructure() {
         Result res = new Result(200, "getVideoDirectoryStructure");
-        res.setExtentPack(DirectoryStructure.getDirectoryStrucure(mp4VideoRootPath).getChildren());
+        if (rootDir == null) {
+            rootDir = DirectoryStructure.getDirectoryStrucure(mp4VideoRootPath);
+        }
+        res.setExtentPack(rootDir.getChildren());
         return res;
     }
 }
