@@ -11,17 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.File;
+import java.net.URLDecoder;
 
 
 @Controller
 public class VideoController {
-//    "F:/bobjames/"
     private static String mp4VideoRootPath = "F:/bobjames/";
     private static String m3u8VideoRootPath = "D:/webvideo/src/main/webapp/video/"; // fixed
 
     private static Dir rootDir;
     @RequestMapping(value="/video", method= RequestMethod.GET)
-    public String getVideo(@RequestParam("videoPath") String videoPath) {// dir1/vid.mp4
+    @ResponseBody
+    public Result getVideo(@RequestParam("videoPath") String videoPath) {// dir1/vid.mp4
+        videoPath = URLDecoder.decode(videoPath);
+        System.out.println(videoPath);
         String mp4VideoPath = mp4VideoRootPath + videoPath;
         // 输出的分片文件存放目录
         String segmentPath = m3u8VideoRootPath + videoPath.substring(0, videoPath.length() - 4);
@@ -34,7 +37,11 @@ public class VideoController {
             }
             FFmpegHLSConverter.execute(mp4VideoPath, m3u8VideoPath);
         }
-        return "redirect:" + m3u8VideoPath.replace(m3u8VideoRootPath, "/video/");
+        String path = m3u8VideoPath.replace(m3u8VideoRootPath, "/video/");
+        System.out.println(path);
+        Result res = new Result(200, "getVideom3u8Link");
+        res.setExtentPack(path);
+        return res;
     }
 
     @RequestMapping(value="/videoDirectoryStructrue", method=RequestMethod.GET)
