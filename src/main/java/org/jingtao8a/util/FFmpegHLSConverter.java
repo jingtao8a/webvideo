@@ -18,7 +18,7 @@ public class FFmpegHLSConverter {
                     "-f", "hls",
                     "-hls_playlist_type", "vod",
                     "-hls_time", "2", // 分片时长（秒)
-                    "-hls_segment_filename", outputFilePath.substring(0, outputFilePath.lastIndexOf("/")) + "/output%03d.ts", // 分片文件名格式
+//                    "-hls_segment_filename", outputFilePath.substring(0, outputFilePath.lastIndexOf("/")) + "/output%03d.ts", // 分片文件名格式
                     outputFilePath
             );
 
