@@ -16,7 +16,8 @@ import java.net.URLDecoder;
 
 @Controller
 public class VideoController {
-    private static String mp4VideoRootPath = "F:/bobjames/";
+//     "D:/video/"
+    private static String mp4VideoRootPath = "G:/honor20/";
     private static String m3u8VideoRootPath = "D:/webvideo/src/main/webapp/video/"; // fixed
 
     private static Dir rootDir;
