@@ -96,6 +96,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/static/media/**").addResourceLocations("/static/media/");
         registry.addResourceHandler("/**").addResourceLocations("/");
         registry.addResourceHandler("/upload/**").addResourceLocations("/upload/");
+        registry.addResourceHandler("/video/**").addResourceLocations("/video/");
     }
 
     @Override
