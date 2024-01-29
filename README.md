@@ -35,4 +35,4 @@
 
 ***
 - 前端项目地址:[webvideo_react](https://github.com/jingtao8a/webvideo_react/tree/webvideo) webvideo分支
-- 前端项目参考视频:[使用React构建博客应用程序](link=https://www.bilibili.com/video/BV1Zg411Y7fb/?spm_id_from=333.337.search-card.all.click&vd_source=1c0783715047ed7b57030c61edf89d7b)
+- 前端项目参考视频:[使用React构建博客应用程序](https://www.bilibili.com/video/BV1Zg411Y7fb/?spm_id_from=333.337.search-card.all.click&vd_source=1c0783715047ed7b57030c61edf89d7b)
