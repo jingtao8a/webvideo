@@ -8,7 +8,8 @@
 <img src="images/4.png" width=400>
 4. 用户只可以在登入情况下编辑和删除自己发布的post<br>
 <img src="images/5.png" width=400>
-5. Video为新增选项，可以浏览服务器本地指定视频资源目录的层级情况,并播放对应视频
+5. Video为新增选项，可以浏览服务器本地指定视频资源目录的层级情况,并播放对应视频<br>
+<img src="images/6.png" width=400>
 
 ### usage
 
